@@ -1,0 +1,12 @@
+Description; feature count; acuracy; true positive; false negative; false positive; true negative; false negative rate [%]; false positive rate [%]; AUC
+DecisionTreeClassifier(); 462; 0.9759645793801391; 922; 16; 22; 621; 1.71; 3.42; 0.9743639058650316
+DecisionTreeClassifier(min_samples_split=4); 462; 0.978494623655914; 925; 13; 21; 622; 1.39; 3.27; 0.9767406579632387
+DecisionTreeClassifier(min_samples_split=6); 462; 0.9803921568627451; 925; 13; 18; 625; 1.39; 2.80; 0.9790734728932543
+DecisionTreeClassifier(min_samples_split=8); 462; 0.9829222011385199; 929; 9; 18; 625; 0.96; 2.80; 0.9812056690553013
+DecisionTreeClassifier(min_samples_split=10); 462; 0.9797596457938014; 927; 11; 21; 622; 1.17; 3.27; 0.9778067560442621
+RandomForestClassifier(); 462; 0.9854522454142948; 933; 5; 18; 625; 0.53; 2.80; 0.9833378652173481
+MLPClassifier(); 462; 0.9829222011385199; 930; 8; 19; 624; 0.85; 2.95; 0.980961113119141
+SVC(); 462; 0.9835547122074636; 935; 3; 23; 620; 0.32; 3.58; 0.9805159384150123
+LinearRegression(); 462; 0.958886780518659; 932; 6; 59; 584; 0.64; 9.18; 0.9509230121332904
+KNeighborsClassifier(); 462; 0.9335863377609108; 936; 2; 103; 540; 0.21; 16.02; 0.9188405893217759
+BernoulliNB(); 462; 0.9791271347248577; 932; 6; 27; 616; 0.64; 4.20; 0.9758063713867897
