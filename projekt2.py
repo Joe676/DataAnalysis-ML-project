@@ -2,12 +2,22 @@ import datetime
 import pandas as pd
 import numpy as np
 import os
+import time
 
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.feature_selection import SelectKBest, f_classif, RFE
 from sklearn.decomposition import PCA
 from sklearn.metrics import confusion_matrix, make_scorer, roc_auc_score, accuracy_score
+
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from sklearn.neural_network import MLPClassifier
+from sklearn.svm import SVC
+from sklearn.linear_model import LinearRegression
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.naive_bayes import BernoulliNB
 
 CSV_HEADER = "Description; feature count; accuracy; true positive; false negative; false positive; true negative; false negative rate [%]; false positive rate [%]; AUC\n"
 
@@ -15,6 +25,60 @@ class FS:
   FS_KBEST = "KBEST"
   FS_RFE = "RFE"
   FS_PCA = "PCA"
+
+FS_TYPES = [FS.FS_KBEST, FS.FS_RFE, FS.FS_PCA]
+
+classifiers_params = [
+    (DecisionTreeClassifier(), {
+      "criterion": ["gini", "entropy", "log_loss"],
+      "splitter": ["best", "random"],
+      "max_depth": [None, 5, 10, 15], 
+      "min_samples_split":[2, 4, 6],
+      "min_samples_leaf": [1, 2, 4, 6],
+      "max_features": ["sqrt", "log2", None, 1, 5, 25, 100],
+      "class_weight": [None, "balanced", {0:1, 1:2}, {0:2, 1:1}, {0:1, 1:5}, {0:5, 1:1}]
+      }),
+    (RandomForestClassifier(), {
+      "n_estimators": [50, 100, 200],
+      "criterion": ["gini", "entropy", "log_loss"],
+      "max_depth": [None, 5, 10, 15],
+      "min_samples_split": [2, 4, 6],
+      "min_samples_leaf": [1, 2, 4, 6],
+      "max_features": ["sqrt", "log2", None, 1, 5, 25, 100],
+      "class_weight": [None, "balanced", {0:1, 1:2}, {0:2, 1:1}, {0:1, 1:5}, {0:5, 1:1}]
+      }),
+    (MLPClassifier(), {
+      "hidden_layer_sizes": [(50,), (100,), (50, 50), (100, 50)],
+      "activation": ["relu", "logistic", "tanh"],
+      "solver": ["lbfgs", "adam"],
+      "alpha": [0.0001, 0.001, 0.01],
+      "learning_rate": ["constant", "invscaling", "adaptive"],
+      "max_iter": [100, 200, 300]
+      }),
+    (SVC(), {
+      "C": [0.1, 1, 10],
+      "kernel": ["linear", "rbf", "poly", "sigmoid"],
+      "degree": [2, 3, 4],
+      "gamma": ["scale", "auto", 0.1, 1],
+      "class_weight": [None, "balanced", {0:1, 1:2}, {0:2, 1:1}, {0:1, 1:5}, {0:5, 1:1}]
+      }),
+    (LinearRegression(), {
+      "fit_intercept": [True, False],
+      "positive": [True, False],
+      "n_jobs": [None, -1]
+      }),
+    (KNeighborsClassifier(), {
+      "n_neighbors": [3, 5, 7],
+      "weights": ["uniform", "distance"],
+      "algorithm": ["auto", "ball_tree", "kd_tree", "brute"],
+      "p": [1, 2]
+      }),
+    (BernoulliNB(), {
+      "alpha": [0.1, 0.5, 1.0],
+      "binarize": [0.5], # because input is 0/1 but not saved as boolean
+      "fit_prior": [True, False]
+      })
+  ]
 
 class ExperimentResults:
   def __init__(self, description, feature_count, accuracy, tp, fn, fp, tn, auc) -> None:
@@ -59,7 +123,6 @@ def write_to_csv(results, file_name_prefix = "experiment"):
     file.writelines(lines)
   print("Results saved to file:", file_name)
     
-
 def summarize(test, pred):
   tp, fn, fp, tn = confusion_matrix(test, pred).ravel()
 
@@ -92,15 +155,21 @@ def do_feature_selection(classifier, X_train, X_test, Y_train, feature_selection
       X_test_fs = X_test
   return X_train_fs, X_test_fs
 
+def get_default_classifier(classifier):
+    return classifier.__class__()
 
-def run_test(label, classifier, X_train, X_test, Y_train, Y_test, map_preds=None, feature_selection:str=None, fs_k=10, param_grid=None, cv=5):
+def run_test(classifier, X_train, X_test, Y_train, Y_test, map_preds=None, feature_selection:str=None, fs_k=10, param_grid=None, grid_search=None, cv=5, label_suffix=None):
   X_train_fs, X_test_fs = do_feature_selection(classifier, X_train, X_test, Y_train, feature_selection, fs_k)
 
   if param_grid:
-    custom_scorer = make_scorer(custom_scoring_fn, greater_is_better=False)
-    grid_search = GridSearchCV(classifier, param_grid, cv=cv, scoring=custom_scorer)
-    # grid_search = GridSearchCV(classifier, param_grid, cv=cv, scoring='accuracy')
-    # grid_search = GridSearchCV(classifier, param_grid, cv=cv, scoring='roc_auc')
+    if grid_search == "custom":
+      custom_scorer = make_scorer(custom_scoring_fn, greater_is_better=False)
+      grid_search = GridSearchCV(classifier, param_grid, cv=cv, scoring=custom_scorer)
+    elif grid_search == "roc_auc":
+      grid_search = GridSearchCV(classifier, param_grid, cv=cv, scoring='roc_auc')
+    else:
+      grid_search = GridSearchCV(classifier, param_grid, cv=cv, scoring='accuracy')
+      
     grid_search.fit(X_train, Y_train)
     best_params = grid_search.best_params_
     classifier.set_params(**best_params)
@@ -114,6 +183,7 @@ def run_test(label, classifier, X_train, X_test, Y_train, Y_test, map_preds=None
     acc = accuracy_score(Y_test, Y_pred_mapped)
     Y_pred = Y_pred_mapped
   tp, fn, fp, tn, auc = summarize(Y_test, Y_pred)
+  label = str(classifier) + (label_suffix if label_suffix is not None else "")
   result = ExperimentResults(label, X_train_fs.shape[1], acc, tp, fn, fp, tn, auc)
   result.show()
   return result
@@ -136,7 +206,13 @@ def get_data():
   # print(Y)
   X_train, X_test, Y_train, Y_test = train_test_split(X,Y,random_state=331, test_size=0.33)
   print("train rows: {}, test rows: {}".format(X_train.shape[0], X_test.shape[0]))
-  return X_train, X_test, Y_train, Y_test
+
+  scaler = StandardScaler()
+  
+  X_train_scaled = scaler.fit_transform(X_train)
+  X_test_scaled = scaler.transform(X_test)
+
+  return X_train_scaled, X_test_scaled, Y_train, Y_test
 
 def main(X_train, X_test, Y_train, Y_test):
   # X_train, X_test, Y_train, Y_test = get_data()
@@ -238,51 +314,120 @@ def main_FS(X_train, X_test, Y_train, Y_test):
   )
   
 def parameter_experiments(X_train, X_test, Y_train, Y_test):
-  from sklearn.tree import DecisionTreeClassifier
-  from sklearn.ensemble import RandomForestClassifier
-  from sklearn.neural_network import MLPClassifier
-  from sklearn.svm import SVC
-  from sklearn.linear_model import LinearRegression
-  from sklearn.neighbors import KNeighborsClassifier
-  from sklearn.naive_bayes import BernoulliNB
-  
   results = []
 
-  classifiers = [
-    (DecisionTreeClassifier(), {"min_samples_split":[4, 6, 8, 10]}),
-    (RandomForestClassifier(), {}),
-    (MLPClassifier(), {}),
-    (SVC(), {}),
-    (LinearRegression(), {}),
-    (KNeighborsClassifier(), {}),
-    (BernoulliNB(), {})
-  ]
-
-  for classifier, params in classifiers:
+  for classifier, params in classifiers_params:
     map_predictions = None
-    if isinstance(classifier, LinearRegression):
+    lr = isinstance(classifier, LinearRegression)
+    if lr:
       map_predictions = lambda y: (y > 0.5).astype(int)
     
-    result = run_test(str(classifier), classifier, 
+    result = run_test(classifier, 
               X_train, X_test, Y_train, Y_test, map_predictions)
     results.append(result)
     for p_name, p_vals in params.items():
       for val in p_vals:
-        classifier.set_params(**{p_name: val})
-        result = run_test(str(classifier), classifier, 
+        default_classifier = get_default_classifier(classifier)
+        default_classifier.set_params(**{p_name: val})
+        result = run_test(default_classifier, 
                   X_train, X_test, Y_train, Y_test, map_predictions)
         results.append(result)
   return results
 
+def gridsearch_custom_experiments(X_train, X_test, Y_train, Y_test):
+  results = []
+
+  for classifier, params in classifiers_params:
+    map_predictions = None
+    lr = isinstance(classifier, LinearRegression)
+    if lr:
+      map_predictions = lambda y: (y > 0.5).astype(int)
+    
+    params_set_len = 1
+    for param in params.values():
+      params_set_len *= len(param)
+
+    if lr:
+      print("GridSearch causes problems with LinearRegression, skipping...")
+      continue
+    
+    print(f"Searching for best classifier through {params_set_len} parameter sets...")
+    start = time.time()
+    result = run_test(classifier, 
+              X_train, X_test, Y_train, Y_test, 
+              map_preds=map_predictions,
+              param_grid=params,
+              grid_search="custom",
+              label_suffix="+GridSearchCV")
+    end = time.time()
+    print("elapsed time [s]:", end-start)
+    results.append(result)
+
+  return results
+
+def gridsearch_accuracy_experiments(X_train, X_test, Y_train, Y_test):
+  results = []
+
+  for classifier, params in classifiers_params:
+    map_predictions = None
+    lr = isinstance(classifier, LinearRegression)
+    if lr:
+      map_predictions = lambda y: (y > 0.5).astype(int)
+    
+    params_set_len = 1
+    for param in params.values():
+      params_set_len *= len(param)
+
+    if lr:
+      print("GridSearch causes problems with LinearRegression, skipping...")
+      continue
+    
+    print(f"Searching for best classifier through {params_set_len} parameter sets...")
+    start = time.time()
+    result = run_test(classifier, 
+              X_train, X_test, Y_train, Y_test, 
+              map_preds=map_predictions,
+              param_grid=params,
+              grid_search="accuracy",
+              label_suffix="+GridSearchCV")
+    end = time.time()
+    print("elapsed time [s]:", end-start)
+    results.append(result)
+
+  return results
+
+def gridsearch_rocauc_experiments(X_train, X_test, Y_train, Y_test):
+  results = []
+
+  for classifier, params in classifiers_params:
+    map_predictions = None
+    lr = isinstance(classifier, LinearRegression)
+    if lr:
+      map_predictions = lambda y: (y > 0.5).astype(int)
+    
+    params_set_len = 1
+    for param in params.values():
+      params_set_len *= len(param)
+
+    if lr:
+      print("GridSearch causes problems with LinearRegression, skipping...")
+      continue
+    
+    print(f"Searching for best classifier through {params_set_len} parameter sets...")
+    start = time.time()
+    result = run_test(classifier, 
+              X_train, X_test, Y_train, Y_test, 
+              map_preds=map_predictions,
+              param_grid=params,
+              grid_search="roc_auc",
+              label_suffix="+GridSearchCV")
+    end = time.time()
+    print("elapsed time [s]:", end-start)
+    results.append(result)
+
+  return results
+
 def feature_selection_experiments(X_train, X_test, Y_train, Y_test):
-  from sklearn.tree import DecisionTreeClassifier
-  from sklearn.ensemble import RandomForestClassifier
-  from sklearn.neural_network import MLPClassifier
-  from sklearn.svm import SVC
-  from sklearn.linear_model import LinearRegression
-  from sklearn.neighbors import KNeighborsClassifier
-  from sklearn.naive_bayes import BernoulliNB
-  
   results = []
 
   # TODO: fill with best parameters
@@ -301,9 +446,13 @@ def feature_selection_experiments(X_train, X_test, Y_train, Y_test):
     if isinstance(classifier, LinearRegression):
       map_predictions = lambda y: (y > 0.5).astype(int)
     
-    result = run_test(str(classifier), classifier, 
-              X_train, X_test, Y_train, Y_test, map_predictions, feature_selection=FS.FS_KBEST)
-    results.append(result)
+    for fs in FS_TYPES:
+      result = run_test(classifier, 
+              X_train, X_test, Y_train, Y_test, map_predictions, feature_selection=fs, label_suffix=f"+FS.{fs}")
+      results.append(result)
+      result = run_test(get_default_classifier(classifier), 
+              X_train, X_test, Y_train, Y_test, map_predictions, feature_selection=fs, label_suffix=f"+FS.{fs}")
+      results.append(result)
     
   return results
 
@@ -312,5 +461,17 @@ if __name__ == "__main__":
 
   results = parameter_experiments(X_train, X_test, Y_train, Y_test)
   write_to_csv(results, "parameters")
+  
+  results = gridsearch_custom_experiments(X_train, X_test, Y_train, Y_test)
+  write_to_csv(results, "gridsearch_custom")
+  
+  results = gridsearch_accuracy_experiments(X_train, X_test, Y_train, Y_test)
+  write_to_csv(results, "gridsearch_accuracy")
+  
+  results = gridsearch_rocauc_experiments(X_train, X_test, Y_train, Y_test)
+  write_to_csv(results, "gridsearch_rocauc")
+
+  # results = feature_selection_experiments(X_train, X_test, Y_train, Y_test)
+  # write_to_csv(results, "feature_selection")
   
 

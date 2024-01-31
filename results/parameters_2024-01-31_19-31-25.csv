@@ -1,0 +1,37 @@
+Description; feature count; accuracy; true positive; false negative; false positive; true negative; false negative rate [%]; false positive rate [%]; AUC
+DecisionTreeClassifier(); 462; 0.9765970904490828; 924; 14; 23; 620; 1.49; 3.58; 0.9746523989693833
+DecisionTreeClassifier(); 462; 0.9746995572422518; 923; 15; 25; 618; 1.60; 3.89; 0.9725641399755277
+DecisionTreeClassifier(criterion='entropy'); 462; 0.9759645793801391; 924; 14; 24; 619; 1.49; 3.73; 0.9738747939927114
+DecisionTreeClassifier(criterion='log_loss'); 462; 0.9765970904490828; 925; 13; 24; 619; 1.39; 3.73; 0.9744078430332231
+DecisionTreeClassifier(criterion='log_loss'); 462; 0.9778621125869703; 923; 15; 20; 623; 1.60; 3.11; 0.976452164858887
+DecisionTreeClassifier(criterion='log_loss', splitter='random'); 462; 0.9759645793801391; 924; 14; 24; 619; 1.49; 3.73; 0.9738747939927114
+DecisionTreeClassifier(criterion='log_loss', max_depth=2, splitter='random'); 462; 0.9000632511068943; 842; 96; 62; 581; 10.23; 9.64; 0.9006157835572194
+DecisionTreeClassifier(criterion='log_loss', max_depth=5, splitter='random'); 462; 0.9550917141049968; 935; 3; 68; 575; 0.32; 10.58; 0.9455237144647789
+DecisionTreeClassifier(criterion='log_loss', max_depth=10, splitter='random'); 462; 0.9772296015180265; 934; 4; 32; 611; 0.43; 4.98; 0.9729844445844539
+DecisionTreeClassifier(criterion='log_loss', max_depth=15, splitter='random'); 462; 0.9791271347248577; 934; 4; 29; 614; 0.43; 4.51; 0.9753172595144695
+DecisionTreeClassifier(criterion='log_loss', max_depth=20, splitter='random'); 462; 0.9810246679316889; 931; 7; 23; 620; 0.75; 3.58; 0.9783837422529654
+DecisionTreeClassifier(criterion='log_loss', max_depth=25, splitter='random'); 462; 0.9803921568627451; 929; 9; 22; 621; 0.96; 3.42; 0.9780952491486138
+DecisionTreeClassifier(criterion='log_loss', max_depth=25, min_samples_split=4,
+                       splitter='random'); 462; 0.9791271347248577; 926; 12; 21; 622; 1.28; 3.27; 0.9772737070037505
+DecisionTreeClassifier(criterion='log_loss', max_depth=25, min_samples_split=6,
+                       splitter='random'); 462; 0.9803921568627451; 928; 10; 21; 622; 1.07; 3.27; 0.9783398050847738
+DecisionTreeClassifier(criterion='log_loss', max_depth=25, min_samples_split=8,
+                       splitter='random'); 462; 0.9829222011385199; 930; 8; 19; 624; 0.85; 2.95; 0.980961113119141
+DecisionTreeClassifier(criterion='log_loss', max_depth=25, min_samples_split=10,
+                       splitter='random'); 462; 0.9803921568627451; 927; 11; 20; 623; 1.17; 3.11; 0.9785843610209339
+DecisionTreeClassifier(criterion='log_loss', max_depth=25, min_samples_leaf=2,
+                       min_samples_split=10, splitter='random'); 462; 0.9797596457938014; 930; 8; 24; 619; 0.85; 3.73; 0.9770730882357818
+DecisionTreeClassifier(criterion='log_loss', max_depth=25, min_samples_leaf=4,
+                       min_samples_split=10, splitter='random'); 462; 0.9734345351043643; 928; 10; 32; 611; 1.07; 4.98; 0.9697861503413835
+DecisionTreeClassifier(criterion='log_loss', max_depth=25, min_samples_leaf=6,
+                       min_samples_split=10, splitter='random'); 462; 0.9734345351043643; 925; 13; 29; 614; 1.39; 4.51; 0.9705198181498639
+DecisionTreeClassifier(criterion='log_loss', max_depth=25, min_samples_leaf=8,
+                       min_samples_split=10, splitter='random'); 462; 0.9734345351043643; 930; 8; 34; 609; 0.85; 5.29; 0.9692970384690632
+DecisionTreeClassifier(criterion='log_loss', max_depth=25, min_samples_leaf=10,
+                       min_samples_split=10, splitter='random'); 462; 0.9709044908285895; 929; 9; 37; 606; 0.96; 5.75; 0.9664311744985361
+RandomForestClassifier(); 462; 0.9841872232764073; 933; 5; 20; 623; 0.53; 3.11; 0.9817826552640043
+MLPClassifier(); 462; 0.9822896900695762; 927; 11; 17; 626; 1.17; 2.64; 0.9809171759509495
+SVC(); 462; 0.9835547122074636; 935; 3; 23; 620; 0.32; 3.58; 0.9805159384150123
+LinearRegression(); 462; 0.958886780518659; 932; 6; 59; 584; 0.64; 9.18; 0.9509230121332904
+KNeighborsClassifier(); 462; 0.9335863377609108; 936; 2; 103; 540; 0.21; 16.02; 0.9188405893217759
+BernoulliNB(); 462; 0.9791271347248577; 932; 6; 27; 616; 0.64; 4.20; 0.9758063713867897
