@@ -237,7 +237,7 @@ def main_FS(X_train, X_test, Y_train, Y_test):
     feature_selection=FS.FS_PCA
   )
   
-def feature_selecion_experiments(X_train, X_test, Y_train, Y_test):
+def parameter_experiments(X_train, X_test, Y_train, Y_test):
   from sklearn.tree import DecisionTreeClassifier
   from sklearn.ensemble import RandomForestClassifier
   from sklearn.neural_network import MLPClassifier
@@ -302,15 +302,15 @@ def feature_selection_experiments(X_train, X_test, Y_train, Y_test):
       map_predictions = lambda y: (y > 0.5).astype(int)
     
     result = run_test(str(classifier), classifier, 
-              X_train, X_test, Y_train, Y_test, map_predictions, feature_selection=)
+              X_train, X_test, Y_train, Y_test, map_predictions, feature_selection=FS.FS_KBEST)
     results.append(result)
     
   return results
 
 if __name__ == "__main__":
   X_train, X_test, Y_train, Y_test = get_data()
-  # main(X_train, X_test, Y_train, Y_test)
-  # main_FS(X_train, X_test, Y_train, Y_test)
-  results = feature_selecion_experiments(X_train, X_test, Y_train, Y_test)
+
+  results = parameter_experiments(X_train, X_test, Y_train, Y_test)
   write_to_csv(results, "parameters")
+  
 
