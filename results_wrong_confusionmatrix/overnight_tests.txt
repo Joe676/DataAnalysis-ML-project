@@ -1,0 +1,51 @@
+---
+DecisionTreeClassifier(class_weight={0: 2, 1: 1}, max_depth=15,
+                       min_samples_leaf=2)+GridSearchCV
+---
+Features count: 462
+Accuracy: 0.967741935483871
+tp: 935, fn: 3, fp: 48, tn: 595
+FNR: 0.32%, FPR: 7.47%
+AUC: 0.9611
+elapsed time [s]: 800.1508219242096
+
+---
+MLPClassifier(alpha=0.001)+GridSearchCV
+---
+Features count: 462
+Accuracy: 0.9829222011385199
+tp: 930, fn: 8, fp: 19, tn: 624
+FNR: 0.85%, FPR: 2.95%
+AUC: 0.9810
+elapsed time [s]: 5829.443927764893
+
+---
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+GridSearchCV
+---
+Features count: 462
+Accuracy: 0.978494623655914
+tp: 929, fn: 9, fp: 25, tn: 618
+FNR: 0.96%, FPR: 3.89%
+AUC: 0.9758
+elapsed time [s]: 1079.9364006519318
+
+---
+KNeighborsClassifier(algorithm='ball_tree', n_neighbors=3, p=1,
+                     weights='distance')+GridSearchCV
+---
+Features count: 462
+Accuracy: 0.9430740037950665
+tp: 937, fn: 1, fp: 89, tn: 554
+FNR: 0.11%, FPR: 13.84%
+AUC: 0.9303
+elapsed time [s]: 87.1313681602478
+
+---
+BernoulliNB(alpha=0.5, binarize=0.5)+GridSearchCV
+---
+Features count: 462
+Accuracy: 0.9791271347248577
+tp: 932, fn: 6, fp: 27, tn: 616
+FNR: 0.64%, FPR: 4.20%
+AUC: 0.9758
+elapsed time [s]: 0.5573134422302246

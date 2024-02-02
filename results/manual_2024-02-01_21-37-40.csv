@@ -1,0 +1,295 @@
+Description; feature count; accuracy; true positive; false negative; false positive; true negative; false negative rate [%]; false positive rate [%]; AUC
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.KBEST; 2; 0.8495; 501; 142; 96; 842; 22.08; 10.23; 0.8384
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.KBEST; 5; 0.9228; 526; 117; 5; 933; 18.20; 0.53; 0.9064
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.KBEST; 10; 0.9620; 592; 51; 9; 929; 7.93; 0.96; 0.9555
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.KBEST; 20; 0.9652; 595; 48; 7; 931; 7.47; 0.75; 0.9589
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.KBEST; 50; 0.9709; 607; 36; 10; 928; 5.60; 1.07; 0.9667
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.KBEST; 100; 0.9715; 606; 37; 8; 930; 5.75; 0.85; 0.9670
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.RFE; 2; 0.9001; 581; 62; 96; 842; 9.64; 10.23; 0.9006
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.RFE; 5; 0.9488; 566; 77; 4; 934; 11.98; 0.43; 0.9380
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.RFE; 10; 0.9703; 601; 42; 5; 933; 6.53; 0.53; 0.9647
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.RFE; 20; 0.9772; 613; 30; 6; 932; 4.67; 0.64; 0.9735
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.RFE; 50; 0.9728; 606; 37; 6; 932; 5.75; 0.64; 0.9680
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.RFE; 100; 0.9728; 606; 37; 6; 932; 5.75; 0.64; 0.9680
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.PCA; 2; 0.9703; 618; 25; 22; 916; 3.89; 2.35; 0.9688
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.PCA; 5; 0.9614; 608; 35; 26; 912; 5.44; 2.77; 0.9589
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.PCA; 10; 0.9671; 609; 34; 18; 920; 5.29; 1.92; 0.9640
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.PCA; 20; 0.9646; 611; 32; 24; 914; 4.98; 2.56; 0.9623
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.PCA; 50; 0.9722; 612; 31; 13; 925; 4.82; 1.39; 0.9690
+DecisionTreeClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.PCA; 100; 0.9779; 623; 20; 15; 923; 3.11; 1.60; 0.9765
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.KBEST; 2; 0.8495; 501; 142; 96; 842; 22.08; 10.23; 0.8384
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.KBEST; 5; 0.9228; 526; 117; 5; 933; 18.20; 0.53; 0.9064
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.KBEST; 10; 0.9620; 592; 51; 9; 929; 7.93; 0.96; 0.9555
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.KBEST; 20; 0.9652; 595; 48; 7; 931; 7.47; 0.75; 0.9589
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.KBEST; 50; 0.9703; 606; 37; 10; 928; 5.75; 1.07; 0.9659
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.KBEST; 100; 0.9715; 606; 37; 8; 930; 5.75; 0.85; 0.9670
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.RFE; 2; 0.9001; 581; 62; 96; 842; 9.64; 10.23; 0.9006
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.RFE; 5; 0.9488; 566; 77; 4; 934; 11.98; 0.43; 0.9380
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.RFE; 10; 0.9703; 601; 42; 5; 933; 6.53; 0.53; 0.9647
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.RFE; 20; 0.9785; 613; 30; 4; 934; 4.67; 0.43; 0.9745
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.RFE; 50; 0.9785; 615; 28; 6; 932; 4.35; 0.64; 0.9750
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.RFE; 100; 0.9753; 610; 33; 6; 932; 5.13; 0.64; 0.9711
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.PCA; 2; 0.9671; 614; 29; 23; 915; 4.51; 2.45; 0.9652
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.PCA; 5; 0.9595; 609; 34; 30; 908; 5.29; 3.20; 0.9576
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.PCA; 10; 0.9627; 607; 36; 23; 915; 5.60; 2.45; 0.9597
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.PCA; 20; 0.9703; 617; 26; 21; 917; 4.04; 2.24; 0.9686
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.PCA; 50; 0.9614; 617; 26; 35; 903; 4.04; 3.73; 0.9611
+DecisionTreeClassifier(criterion='entropy', max_depth=20, min_samples_leaf=2)+FS.PCA; 100; 0.9646; 615; 28; 28; 910; 4.35; 2.99; 0.9633
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.KBEST; 2; 0.8495; 501; 142; 96; 842; 22.08; 10.23; 0.8384
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.KBEST; 5; 0.9228; 526; 117; 5; 933; 18.20; 0.53; 0.9064
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.KBEST; 10; 0.9620; 592; 51; 9; 929; 7.93; 0.96; 0.9555
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.KBEST; 20; 0.9652; 595; 48; 7; 931; 7.47; 0.75; 0.9589
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.KBEST; 50; 0.9703; 606; 37; 10; 928; 5.75; 1.07; 0.9659
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.KBEST; 100; 0.9715; 607; 36; 9; 929; 5.60; 0.96; 0.9672
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.RFE; 2; 0.9001; 581; 62; 96; 842; 9.64; 10.23; 0.9006
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.RFE; 5; 0.9488; 566; 77; 4; 934; 11.98; 0.43; 0.9380
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.RFE; 10; 0.9703; 601; 42; 5; 933; 6.53; 0.53; 0.9647
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.RFE; 20; 0.9766; 612; 31; 6; 932; 4.82; 0.64; 0.9727
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.RFE; 50; 0.9747; 609; 34; 6; 932; 5.29; 0.64; 0.9704
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.RFE; 100; 0.9747; 610; 33; 7; 931; 5.13; 0.75; 0.9706
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.PCA; 2; 0.9576; 604; 39; 28; 910; 6.07; 2.99; 0.9547
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.PCA; 5; 0.9595; 608; 35; 29; 909; 5.44; 3.09; 0.9573
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.PCA; 10; 0.9677; 612; 31; 20; 918; 4.82; 2.13; 0.9652
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.PCA; 20; 0.9627; 607; 36; 23; 915; 5.60; 2.45; 0.9597
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.PCA; 50; 0.9709; 615; 28; 18; 920; 4.35; 1.92; 0.9686
+DecisionTreeClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2)+FS.PCA; 100; 0.9690; 612; 31; 18; 920; 4.82; 1.92; 0.9663
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 2; 0.8115; 347; 296; 2; 936; 46.03; 0.21; 0.7688
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 5; 0.9228; 526; 117; 5; 933; 18.20; 0.53; 0.9064
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 10; 0.9456; 562; 81; 5; 933; 12.60; 0.53; 0.9343
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 20; 0.9551; 577; 66; 5; 933; 10.26; 0.53; 0.9460
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 50; 0.9658; 595; 48; 6; 932; 7.47; 0.64; 0.9595
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 100; 0.9766; 610; 33; 4; 934; 5.13; 0.43; 0.9722
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 2; 0.9418; 554; 89; 3; 935; 13.84; 0.32; 0.9292
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 5; 0.9418; 554; 89; 3; 935; 13.84; 0.32; 0.9292
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 10; 0.9412; 553; 90; 3; 935; 14.00; 0.32; 0.9284
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 20; 0.9450; 561; 82; 5; 933; 12.75; 0.53; 0.9336
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 50; 0.9658; 595; 48; 6; 932; 7.47; 0.64; 0.9595
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 100; 0.9741; 610; 33; 8; 930; 5.13; 0.85; 0.9701
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 2; 0.8115; 347; 296; 2; 936; 46.03; 0.21; 0.7688
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 5; 0.9228; 526; 117; 5; 933; 18.20; 0.53; 0.9064
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 10; 0.9576; 584; 59; 8; 930; 9.18; 0.85; 0.9499
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 20; 0.9557; 578; 65; 5; 933; 10.11; 0.53; 0.9468
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 50; 0.9602; 584; 59; 4; 934; 9.18; 0.43; 0.9520
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 100; 0.9589; 581; 62; 3; 935; 9.64; 0.32; 0.9502
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 2; 0.9405; 557; 86; 8; 930; 13.37; 0.85; 0.9289
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 5; 0.9247; 528; 115; 4; 934; 17.88; 0.43; 0.9084
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 10; 0.9254; 529; 114; 4; 934; 17.73; 0.43; 0.9092
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 20; 0.9216; 523; 120; 4; 934; 18.66; 0.43; 0.9046
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 50; 0.9292; 533; 110; 2; 936; 17.11; 0.21; 0.9134
+SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 100; 0.9241; 524; 119; 1; 937; 18.51; 0.11; 0.9069
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 2; 0.8115; 347; 296; 2; 936; 46.03; 0.21; 0.7688
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 5; 0.9228; 526; 117; 5; 933; 18.20; 0.53; 0.9064
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 10; 0.9456; 562; 81; 5; 933; 12.60; 0.53; 0.9343
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 20; 0.9526; 573; 70; 5; 933; 10.89; 0.53; 0.9429
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 50; 0.9627; 590; 53; 6; 932; 8.24; 0.64; 0.9556
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 100; 0.9766; 607; 36; 1; 937; 5.60; 0.11; 0.9715
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear')+FS.PCA; 2; 0.9260; 529; 114; 3; 935; 17.73; 0.32; 0.9098
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear')+FS.PCA; 5; 0.9323; 538; 105; 2; 936; 16.33; 0.21; 0.9173
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear')+FS.PCA; 10; 0.9292; 532; 111; 1; 937; 17.26; 0.11; 0.9132
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear')+FS.PCA; 20; 0.9330; 539; 104; 2; 936; 16.17; 0.21; 0.9181
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear')+FS.PCA; 50; 0.9526; 574; 69; 6; 932; 10.73; 0.64; 0.9431
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear')+FS.PCA; 100; 0.9677; 599; 44; 7; 931; 6.84; 0.75; 0.9621
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 2; 0.8115; 347; 296; 2; 936; 46.03; 0.21; 0.7688
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 5; 0.9058; 499; 144; 5; 933; 22.40; 0.53; 0.8854
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 10; 0.9336; 547; 96; 9; 929; 14.93; 0.96; 0.9206
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 20; 0.9450; 561; 82; 5; 933; 12.75; 0.53; 0.9336
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 50; 0.9513; 570; 73; 4; 934; 11.35; 0.43; 0.9411
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 100; 0.9545; 573; 70; 2; 936; 10.89; 0.21; 0.9445
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 2; 0.9241; 528; 115; 5; 933; 17.88; 0.53; 0.9079
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 5; 0.9045; 495; 148; 3; 935; 23.02; 0.32; 0.8833
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 10; 0.9070; 499; 144; 3; 935; 22.40; 0.32; 0.8864
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 20; 0.9064; 496; 147; 1; 937; 22.86; 0.11; 0.8852
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 50; 0.9077; 498; 145; 1; 937; 22.55; 0.11; 0.8867
+SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 100; 0.9114; 504; 139; 1; 937; 21.62; 0.11; 0.8914
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 2; 0.8115; 347; 296; 2; 936; 46.03; 0.21; 0.7688
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 5; 0.9228; 526; 117; 5; 933; 18.20; 0.53; 0.9064
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 10; 0.9456; 562; 81; 5; 933; 12.60; 0.53; 0.9343
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 20; 0.9551; 577; 66; 5; 933; 10.26; 0.53; 0.9460
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 50; 0.9690; 599; 44; 5; 933; 6.84; 0.53; 0.9631
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 100; 0.9817; 616; 27; 2; 936; 4.20; 0.21; 0.9779
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 2; 0.9418; 554; 89; 3; 935; 13.84; 0.32; 0.9292
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 5; 0.9418; 554; 89; 3; 935; 13.84; 0.32; 0.9292
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 10; 0.9424; 555; 88; 3; 935; 13.69; 0.32; 0.9300
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 20; 0.9431; 558; 85; 5; 933; 13.22; 0.53; 0.9312
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 50; 0.9658; 595; 48; 6; 932; 7.47; 0.64; 0.9595
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 100; 0.9766; 617; 26; 11; 927; 4.04; 1.17; 0.9739
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 2; 0.8115; 347; 296; 2; 936; 46.03; 0.21; 0.7688
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 5; 0.9235; 527; 116; 5; 933; 18.04; 0.53; 0.9071
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 10; 0.9386; 557; 86; 11; 927; 13.37; 1.17; 0.9273
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 20; 0.9507; 573; 70; 8; 930; 10.89; 0.85; 0.9413
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 50; 0.9576; 581; 62; 5; 933; 9.64; 0.53; 0.9491
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 100; 0.9627; 590; 53; 6; 932; 8.24; 0.64; 0.9556
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 2; 0.9317; 548; 95; 13; 925; 14.77; 1.39; 0.9192
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 5; 0.9266; 542; 101; 15; 923; 15.71; 1.60; 0.9135
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 10; 0.9171; 531; 112; 19; 919; 17.42; 2.03; 0.9028
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 20; 0.9209; 533; 110; 15; 923; 17.11; 1.60; 0.9065
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 50; 0.9367; 552; 91; 9; 929; 14.15; 0.96; 0.9244
+SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 100; 0.9494; 572; 71; 9; 929; 11.04; 0.96; 0.9400
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 2; 0.8115; 347; 296; 2; 936; 46.03; 0.21; 0.7688
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 5; 0.9228; 526; 117; 5; 933; 18.20; 0.53; 0.9064
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 10; 0.9456; 562; 81; 5; 933; 12.60; 0.53; 0.9343
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 20; 0.9551; 577; 66; 5; 933; 10.26; 0.53; 0.9460
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 50; 0.9690; 599; 44; 5; 933; 6.84; 0.53; 0.9631
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.KBEST; 100; 0.9810; 615; 28; 2; 936; 4.35; 0.21; 0.9772
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 2; 0.9418; 554; 89; 3; 935; 13.84; 0.32; 0.9292
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 5; 0.9424; 555; 88; 3; 935; 13.69; 0.32; 0.9300
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 10; 0.9412; 553; 90; 3; 935; 14.00; 0.32; 0.9284
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 20; 0.9456; 564; 79; 7; 931; 12.29; 0.75; 0.9348
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 50; 0.9665; 596; 47; 6; 932; 7.31; 0.64; 0.9603
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear')+FS.PCA; 100; 0.9703; 613; 30; 17; 921; 4.67; 1.81; 0.9676
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 2; 0.8115; 347; 296; 2; 936; 46.03; 0.21; 0.7688
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 5; 0.9235; 527; 116; 5; 933; 18.04; 0.53; 0.9071
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 10; 0.9399; 557; 86; 9; 929; 13.37; 0.96; 0.9283
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 20; 0.9462; 569; 74; 11; 927; 11.51; 1.17; 0.9366
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 50; 0.9608; 591; 52; 10; 928; 8.09; 1.07; 0.9542
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.KBEST; 100; 0.9608; 589; 54; 8; 930; 8.40; 0.85; 0.9537
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 2; 0.9323; 550; 93; 14; 924; 14.46; 1.49; 0.9202
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 5; 0.9247; 541; 102; 17; 921; 15.86; 1.81; 0.9116
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 10; 0.9171; 530; 113; 18; 920; 17.57; 1.92; 0.9025
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 20; 0.9197; 536; 107; 20; 918; 16.64; 2.13; 0.9061
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 50; 0.9349; 554; 89; 14; 924; 13.84; 1.49; 0.9233
+SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid')+FS.PCA; 100; 0.9424; 563; 80; 11; 927; 12.44; 1.17; 0.9319
+LinearRegression(n_jobs=-1, positive=True)+FS.KBEST; 2; 0.8115; 347; 296; 2; 936; 46.03; 0.21; 0.7688
+LinearRegression(n_jobs=-1, positive=True)+FS.KBEST; 5; 0.9228; 526; 117; 5; 933; 18.20; 0.53; 0.9064
+LinearRegression(n_jobs=-1, positive=True)+FS.KBEST; 10; 0.9064; 499; 144; 4; 934; 22.40; 0.43; 0.8859
+LinearRegression(n_jobs=-1, positive=True)+FS.KBEST; 20; 0.9336; 543; 100; 5; 933; 15.55; 0.53; 0.9196
+LinearRegression(n_jobs=-1, positive=True)+FS.KBEST; 50; 0.9399; 550; 93; 2; 936; 14.46; 0.21; 0.9266
+LinearRegression(n_jobs=-1, positive=True)+FS.KBEST; 100; 0.9545; 575; 68; 4; 934; 10.58; 0.43; 0.9450
+LinearRegression(n_jobs=-1, positive=True)+FS.RFE; 2; 0.9032; 492; 151; 2; 936; 23.48; 0.21; 0.8815
+LinearRegression(n_jobs=-1, positive=True)+FS.RFE; 5; 0.9519; 573; 70; 6; 932; 10.89; 0.64; 0.9424
+LinearRegression(n_jobs=-1, positive=True)+FS.RFE; 10; 0.9273; 533; 110; 5; 933; 17.11; 0.53; 0.9118
+LinearRegression(n_jobs=-1, positive=True)+FS.RFE; 20; 0.9507; 566; 77; 1; 937; 11.98; 0.11; 0.9396
+LinearRegression(n_jobs=-1, positive=True)+FS.RFE; 50; 0.9602; 584; 59; 4; 934; 9.18; 0.43; 0.9520
+LinearRegression(n_jobs=-1, positive=True)+FS.RFE; 100; 0.9646; 591; 52; 4; 934; 8.09; 0.43; 0.9574
+LinearRegression(n_jobs=-1, positive=True)+FS.PCA; 2; 0.8956; 479; 164; 1; 937; 25.51; 0.11; 0.8719
+LinearRegression(n_jobs=-1, positive=True)+FS.PCA; 5; 0.8956; 479; 164; 1; 937; 25.51; 0.11; 0.8719
+LinearRegression(n_jobs=-1, positive=True)+FS.PCA; 10; 0.8944; 477; 166; 1; 937; 25.82; 0.11; 0.8704
+LinearRegression(n_jobs=-1, positive=True)+FS.PCA; 20; 0.8956; 479; 164; 1; 937; 25.51; 0.11; 0.8719
+LinearRegression(n_jobs=-1, positive=True)+FS.PCA; 50; 0.9058; 496; 147; 2; 936; 22.86; 0.21; 0.8846
+LinearRegression(n_jobs=-1, positive=True)+FS.PCA; 100; 0.9064; 497; 146; 2; 936; 22.71; 0.21; 0.8854
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.KBEST; 2; 0.8495; 501; 142; 96; 842; 22.08; 10.23; 0.8384
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.KBEST; 5; 0.9228; 526; 117; 5; 933; 18.20; 0.53; 0.9064
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.KBEST; 10; 0.9633; 595; 48; 10; 928; 7.47; 1.07; 0.9573
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.KBEST; 20; 0.9684; 605; 38; 12; 926; 5.91; 1.28; 0.9641
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.KBEST; 50; 0.9722; 607; 36; 8; 930; 5.60; 0.85; 0.9677
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.KBEST; 100; 0.9753; 611; 32; 7; 931; 4.98; 0.75; 0.9714
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.RFE; 2; 0.9001; 581; 62; 96; 842; 9.64; 10.23; 0.9006
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.RFE; 5; 0.9437; 556; 87; 2; 936; 13.53; 0.21; 0.9313
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.RFE; 10; 0.9652; 594; 49; 6; 932; 7.62; 0.64; 0.9587
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.RFE; 20; 0.9772; 619; 24; 12; 926; 3.73; 1.28; 0.9749
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.RFE; 50; 0.9785; 614; 29; 5; 933; 4.51; 0.53; 0.9748
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.RFE; 100; 0.9779; 613; 30; 5; 933; 4.67; 0.53; 0.9740
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.PCA; 2; 0.9722; 618; 25; 19; 919; 3.89; 2.03; 0.9704
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.PCA; 5; 0.9741; 624; 19; 22; 916; 2.95; 2.35; 0.9735
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.PCA; 10; 0.9747; 623; 20; 20; 918; 3.11; 2.13; 0.9738
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.PCA; 20; 0.9779; 622; 21; 14; 924; 3.27; 1.49; 0.9762
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.PCA; 50; 0.9817; 625; 18; 11; 927; 2.80; 1.17; 0.9801
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=50)+FS.PCA; 100; 0.9810; 626; 17; 13; 925; 2.64; 1.39; 0.9799
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.KBEST; 2; 0.8495; 501; 142; 96; 842; 22.08; 10.23; 0.8384
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.KBEST; 5; 0.9228; 526; 117; 5; 933; 18.20; 0.53; 0.9064
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.KBEST; 10; 0.9627; 593; 50; 9; 929; 7.78; 0.96; 0.9563
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.KBEST; 20; 0.9690; 606; 37; 12; 926; 5.75; 1.28; 0.9648
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.KBEST; 50; 0.9734; 608; 35; 7; 931; 5.44; 0.75; 0.9691
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.KBEST; 100; 0.9760; 611; 32; 6; 932; 4.98; 0.64; 0.9719
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.RFE; 2; 0.9001; 581; 62; 96; 842; 9.64; 10.23; 0.9006
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.RFE; 5; 0.9456; 562; 81; 5; 933; 12.60; 0.53; 0.9343
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.RFE; 10; 0.9646; 595; 48; 8; 930; 7.47; 0.85; 0.9584
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.RFE; 20; 0.9785; 620; 23; 11; 927; 3.58; 1.17; 0.9763
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.RFE; 50; 0.9766; 611; 32; 5; 933; 4.98; 0.53; 0.9725
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.RFE; 100; 0.9772; 612; 31; 5; 933; 4.82; 0.53; 0.9732
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.PCA; 2; 0.9722; 618; 25; 19; 919; 3.89; 2.03; 0.9704
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.PCA; 5; 0.9728; 622; 21; 22; 916; 3.27; 2.35; 0.9719
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.PCA; 10; 0.9766; 623; 20; 17; 921; 3.11; 1.81; 0.9754
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.PCA; 20; 0.9798; 623; 20; 12; 926; 3.11; 1.28; 0.9781
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.PCA; 50; 0.9785; 624; 19; 15; 923; 2.95; 1.60; 0.9772
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2,
+                       n_estimators=150)+FS.PCA; 100; 0.9804; 625; 18; 13; 925; 2.80; 1.39; 0.9791
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.KBEST; 2; 0.8495; 501; 142; 96; 842; 22.08; 10.23; 0.8384
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.KBEST; 5; 0.9228; 526; 117; 5; 933; 18.20; 0.53; 0.9064
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.KBEST; 10; 0.9633; 594; 49; 9; 929; 7.62; 0.96; 0.9571
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.KBEST; 20; 0.9684; 603; 40; 10; 928; 6.22; 1.07; 0.9636
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.KBEST; 50; 0.9709; 605; 38; 8; 930; 5.91; 0.85; 0.9662
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.KBEST; 100; 0.9785; 615; 28; 6; 932; 4.35; 0.64; 0.9750
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.RFE; 2; 0.9001; 581; 62; 96; 842; 9.64; 10.23; 0.9006
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.RFE; 5; 0.9456; 562; 81; 5; 933; 12.60; 0.53; 0.9343
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.RFE; 10; 0.9652; 597; 46; 9; 929; 7.15; 0.96; 0.9594
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.RFE; 20; 0.9760; 617; 26; 12; 926; 4.04; 1.28; 0.9734
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.RFE; 50; 0.9779; 613; 30; 5; 933; 4.67; 0.53; 0.9740
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.RFE; 100; 0.9772; 612; 31; 5; 933; 4.82; 0.53; 0.9732
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.PCA; 2; 0.9709; 617; 26; 20; 918; 4.04; 2.13; 0.9691
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.PCA; 5; 0.9715; 619; 24; 21; 917; 3.73; 2.24; 0.9701
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.PCA; 10; 0.9741; 624; 19; 22; 916; 2.95; 2.35; 0.9735
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.PCA; 20; 0.9791; 624; 19; 14; 924; 2.95; 1.49; 0.9778
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.PCA; 50; 0.9785; 623; 20; 14; 924; 3.11; 1.49; 0.9770
+RandomForestClassifier(criterion='entropy', max_depth=15, min_samples_leaf=2)+FS.PCA; 100; 0.9804; 626; 17; 14; 924; 2.64; 1.49; 0.9793
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.KBEST; 2; 0.8495; 501; 142; 96; 842; 22.08; 10.23; 0.8384
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.KBEST; 5; 0.9209; 520; 123; 2; 936; 19.13; 0.21; 0.9033
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.KBEST; 10; 0.9633; 594; 49; 9; 929; 7.62; 0.96; 0.9571
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.KBEST; 20; 0.9690; 603; 40; 9; 929; 6.22; 0.96; 0.9641
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.KBEST; 50; 0.9747; 610; 33; 7; 931; 5.13; 0.75; 0.9706
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.KBEST; 100; 0.9804; 618; 25; 6; 932; 3.89; 0.64; 0.9774
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.RFE; 2; 0.9001; 581; 62; 96; 842; 9.64; 10.23; 0.9006
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.RFE; 5; 0.9456; 562; 81; 5; 933; 12.60; 0.53; 0.9343
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.RFE; 10; 0.9652; 597; 46; 9; 929; 7.15; 0.96; 0.9594
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.RFE; 20; 0.9766; 618; 25; 12; 926; 3.89; 1.28; 0.9742
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.RFE; 50; 0.9804; 619; 24; 7; 931; 3.73; 0.75; 0.9776
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.RFE; 100; 0.9785; 616; 27; 7; 931; 4.20; 0.75; 0.9753
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.PCA; 2; 0.9709; 616; 27; 19; 919; 4.20; 2.03; 0.9689
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.PCA; 5; 0.9741; 623; 20; 21; 917; 3.11; 2.24; 0.9733
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.PCA; 10; 0.9747; 623; 20; 20; 918; 3.11; 2.13; 0.9738
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.PCA; 20; 0.9785; 622; 21; 13; 925; 3.27; 1.39; 0.9767
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.PCA; 50; 0.9791; 623; 20; 13; 925; 3.11; 1.39; 0.9775
+RandomForestClassifier(criterion='entropy', max_depth=25, min_samples_leaf=2,
+                       n_estimators=50)+FS.PCA; 100; 0.9798; 626; 17; 15; 923; 2.64; 1.60; 0.9788

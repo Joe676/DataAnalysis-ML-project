@@ -4,15 +4,18 @@ import numpy as np
 import os
 import time
 
+# import matplotlib.pyplot as plt
+
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 from sklearn.feature_selection import SelectKBest, f_classif, RFE
 from sklearn.decomposition import PCA
-from sklearn.metrics import confusion_matrix, make_scorer, roc_auc_score, accuracy_score
+from sklearn.metrics import confusion_matrix, make_scorer, roc_auc_score, accuracy_score, ConfusionMatrixDisplay
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+from xgboost import XGBClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.svm import SVC
 from sklearn.linear_model import LinearRegression
@@ -38,23 +41,6 @@ classifiers_params = [
       "max_features": ["sqrt", "log2", None, 1, 5, 25, 100],
       "class_weight": [None, "balanced", {0:1, 1:2}, {0:2, 1:1}, {0:1, 1:5}, {0:5, 1:1}]
       }),
-    (RandomForestClassifier(), {
-      "n_estimators": [50, 100, 200],
-      "criterion": ["gini", "entropy", "log_loss"],
-      "max_depth": [None, 5, 10, 15],
-      "min_samples_split": [2, 4, 6],
-      "min_samples_leaf": [1, 2, 4, 6],
-      "max_features": ["sqrt", "log2", None, 1, 5, 25, 100],
-      "class_weight": [None, "balanced", {0:1, 1:2}, {0:2, 1:1}, {0:1, 1:5}, {0:5, 1:1}]
-      }),
-    (MLPClassifier(), {
-      "hidden_layer_sizes": [(50,), (100,), (50, 50), (100, 50)],
-      "activation": ["relu", "logistic", "tanh"],
-      "solver": ["lbfgs", "adam"],
-      "alpha": [0.0001, 0.001, 0.01],
-      "learning_rate": ["constant", "invscaling", "adaptive"],
-      "max_iter": [100, 200, 300]
-      }),
     (SVC(), {
       "C": [0.1, 1, 10],
       "kernel": ["linear", "rbf", "poly", "sigmoid"],
@@ -77,7 +63,24 @@ classifiers_params = [
       "alpha": [0.1, 0.5, 1.0],
       "binarize": [0.5], # because input is 0/1 but not saved as boolean
       "fit_prior": [True, False]
-      })
+      }),
+    (MLPClassifier(), {
+      "hidden_layer_sizes": [(50,), (100,), (50, 50), (100, 50)],
+      "activation": ["relu", "logistic", "tanh"],
+      "solver": ["lbfgs", "adam"],
+      "alpha": [0.0001, 0.001, 0.01],
+      "learning_rate": ["constant", "invscaling", "adaptive"],
+      "max_iter": [100, 200, 300]
+      }),
+    (RandomForestClassifier(), {
+      "n_estimators": [50, 100, 150],
+      "criterion": ["gini", "entropy"],
+      "max_depth": [None, 5, 10, 15],
+      "min_samples_split": [2, 4, 6],
+      "min_samples_leaf": [1, 2, 4, 6],
+      "max_features": ["sqrt", "log2", None, 25, 100],
+      "class_weight": [None, "balanced", {0:1, 1:2}, {0:1, 1:5}]
+      }),
   ]
 
 class ExperimentResults:
@@ -112,7 +115,7 @@ class ExperimentResults:
            f"AUC: {self.auc:.4f}"
   
   def csv(self):
-    return f"{self.description}; {self.feature_count}; {self.accuracy}; {self.tp}; {self.fn}; {self.fp}; {self.tn}; {self.fnr*100:.2f}; {self.fpr*100:.2f}; {self.auc}\n"
+    return f"{self.description}; {self.feature_count}; {self.accuracy:.4f}; {self.tp}; {self.fn}; {self.fp}; {self.tn}; {self.fnr*100:.2f}; {self.fpr*100:.2f}; {self.auc:.4f}\n"
   
 def write_to_csv(results, file_name_prefix = "experiment"):
   current_time = datetime.datetime.now()
@@ -124,7 +127,7 @@ def write_to_csv(results, file_name_prefix = "experiment"):
   print("Results saved to file:", file_name)
     
 def summarize(test, pred):
-  tp, fn, fp, tn = confusion_matrix(test, pred).ravel()
+  tn, fp, fn, tp = confusion_matrix(test, pred).ravel()
 
   # print(f"tp: {tp}, fn: {fn}, fp: {fp}, tn: {tn}")
   # FPR = fp / (fp + tn)
@@ -133,7 +136,7 @@ def summarize(test, pred):
   auc = roc_auc_score(test, pred)
   # print(f"FNR: {FNR*100:.2f}%, FPR: {FPR*100:.2f}%")
   # print(f"AUC: {auc:.4f}")
-  return tp, fn, fp, tn, auc
+  return tn, fp, fn, tp, auc
 
 def do_feature_selection(classifier, X_train, X_test, Y_train, feature_selection, fs_k):
   match feature_selection:
@@ -158,17 +161,17 @@ def do_feature_selection(classifier, X_train, X_test, Y_train, feature_selection
 def get_default_classifier(classifier):
     return classifier.__class__()
 
-def run_test(classifier, X_train, X_test, Y_train, Y_test, map_preds=None, feature_selection:str=None, fs_k=10, param_grid=None, grid_search=None, cv=5, label_suffix=None):
+def run_test(classifier, X_train, X_test, Y_train, Y_test, map_preds=None, feature_selection:str=None, fs_k=10, param_grid=None, grid_search=None, label_suffix=None):
   X_train_fs, X_test_fs = do_feature_selection(classifier, X_train, X_test, Y_train, feature_selection, fs_k)
 
   if param_grid:
     if grid_search == "custom":
       custom_scorer = make_scorer(custom_scoring_fn, greater_is_better=False)
-      grid_search = GridSearchCV(classifier, param_grid, cv=cv, scoring=custom_scorer)
+      grid_search = GridSearchCV(classifier, param_grid, scoring=custom_scorer)
     elif grid_search == "roc_auc":
-      grid_search = GridSearchCV(classifier, param_grid, cv=cv, scoring='roc_auc')
+      grid_search = GridSearchCV(classifier, param_grid, scoring='roc_auc')
     else:
-      grid_search = GridSearchCV(classifier, param_grid, cv=cv, scoring='accuracy')
+      grid_search = GridSearchCV(classifier, param_grid, scoring='accuracy')
       
     grid_search.fit(X_train, Y_train)
     best_params = grid_search.best_params_
@@ -182,19 +185,26 @@ def run_test(classifier, X_train, X_test, Y_train, Y_test, map_preds=None, featu
     Y_pred_mapped = map_preds(Y_pred)
     acc = accuracy_score(Y_test, Y_pred_mapped)
     Y_pred = Y_pred_mapped
-  tp, fn, fp, tn, auc = summarize(Y_test, Y_pred)
+  tn, fp, fn, tp, auc = summarize(Y_test, Y_pred)
   label = str(classifier) + (label_suffix if label_suffix is not None else "")
   result = ExperimentResults(label, X_train_fs.shape[1], acc, tp, fn, fp, tn, auc)
   result.show()
   return result
 
 def custom_scoring_fn(y_true, y_pred):
-  tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+  cm = confusion_matrix(y_true, y_pred)
+  tn, fp, fn, tp = cm.ravel()
+  
+  # print(f"tp: {tp}, fn: {fn}, fp: {fp}, tn: {tn}")
+  # disp = ConfusionMatrixDisplay(confusion_matrix=cm)
+  # disp.plot()
+  # plt.show()
+
   FNR = fn / (fn + tp)
   FPR = fp / (fp + tn)
   
   penalty = 10
-  return FNR + penalty * max(0, FPR - 0.005)
+  return FNR + penalty*max(0, FPR-0.005)
 
 def get_data():
   dataframe = pd.read_csv("./data_ml/spam.dat")
@@ -427,7 +437,7 @@ def gridsearch_rocauc_experiments(X_train, X_test, Y_train, Y_test):
 
   return results
 
-def feature_selection_experiments(X_train, X_test, Y_train, Y_test):
+def default_feature_selection_experiments(X_train, X_test, Y_train, Y_test):
   results = []
 
   # TODO: fill with best parameters
@@ -447,13 +457,121 @@ def feature_selection_experiments(X_train, X_test, Y_train, Y_test):
       map_predictions = lambda y: (y > 0.5).astype(int)
     
     for fs in FS_TYPES:
-      result = run_test(classifier, 
-              X_train, X_test, Y_train, Y_test, map_predictions, feature_selection=fs, label_suffix=f"+FS.{fs}")
-      results.append(result)
-      result = run_test(get_default_classifier(classifier), 
-              X_train, X_test, Y_train, Y_test, map_predictions, feature_selection=fs, label_suffix=f"+FS.{fs}")
-      results.append(result)
+      if fs == FS.FS_RFE and (isinstance(classifier, MLPClassifier) or isinstance(classifier, SVC) or isinstance(classifier, KNeighborsClassifier) or isinstance(classifier, BernoulliNB)):
+        print("MLPClassifier, SVC and KNeighborsClassifier are incompatible with RFE, skipping...")
+        continue
+      for k in (2, 5, 10, 20, 50, 100):
+        # result = run_test(classifier, 
+        #         X_train, X_test, Y_train, Y_test, map_predictions, feature_selection=fs, label_suffix=f"+FS.{fs}")
+        # results.append(result)
+        result = run_test(get_default_classifier(classifier), 
+                X_train, X_test, Y_train, Y_test, map_predictions, feature_selection=fs, fs_k=k, label_suffix=f"+FS.{fs}")
+        results.append(result)
     
+  return results
+
+def ensamble_experiments(X_train, X_test, Y_train, Y_test):
+  results = []
+  ensamble_classifiers = [
+      (AdaBoostClassifier(), {
+        "n_estimators": [50, 100, 150],
+        "learning_rate": [0.01, 0.1, 1.0]
+      }),
+      (XGBClassifier(), {
+        "n_estimators": [50, 100, 200],
+        "learning_rate": [0.01, 0.1, 1.0],
+        "max_depth": [3, 5, 7],
+        })
+    ]
+
+  for classifier, params in ensamble_classifiers:
+    params_set_len = 1
+    for param in params.values():
+      params_set_len *= len(param)
+    
+    for search_scorer in ("custom", "accuracy", "roc_auc"):
+      print(f"Searching for best {str(classifier)} through {params_set_len} parameter space...")
+      start = time.time()
+      result = run_test(classifier, 
+                X_train, X_test, Y_train, Y_test,
+                param_grid=params,
+                grid_search=search_scorer,
+                label_suffix=f"+GridSearchCV_{search_scorer}")
+      end = time.time()
+      print("elapsed time [s]:", end-start)
+      results.append(result)
+
+  return results
+
+def fs_gs_experiments(X_train, X_test, Y_train, Y_test):
+  results = []
+
+  for classifier, params in classifiers_params:
+    lr = isinstance(classifier, LinearRegression)
+    if lr:
+      print("GridSearch causes problems with LinearRegression, skipping...")
+      continue
+
+    params_set_len = 1
+    for param in params.values():
+      params_set_len *= len(param)
+    
+    for search_scorer in ("custom", "accuracy", "roc_auc"):
+      for fs in FS_TYPES:
+        for k in [10, 20, 50]:
+          print(f"Searching for best {str(classifier)} through {params_set_len} parameter space...")
+          print(f"with {k} features...")
+          start = time.time()
+          result = run_test(classifier, 
+                    X_train, X_test, Y_train, Y_test,
+                    param_grid=params,
+                    grid_search=search_scorer,
+                    feature_selection=fs,
+                    fs_k=k,
+                    label_suffix=f"+GridSearchCV_{search_scorer}+FS.{fs}({k})")
+          end = time.time()
+          print("elapsed time [s]:", end-start)
+          results.append(result)
+
+  return results
+
+def manual_parameter_experiments(X_train, X_test, Y_train, Y_test):
+  results = []
+
+  manual_parameters = [
+    DecisionTreeClassifier(max_depth=15, min_samples_leaf=2, criterion="entropy"),
+    DecisionTreeClassifier(max_depth=20, min_samples_leaf=2, criterion="entropy"),
+    DecisionTreeClassifier(max_depth=25, min_samples_leaf=2, criterion="entropy"),
+    SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear'),
+    SVC(C=0.1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid'),
+    SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='linear'),
+    SVC(C=0.1, class_weight={0: 10, 1: 1}, degree=2, kernel='sigmoid'),
+    SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='linear'),
+    SVC(C=1, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid'),
+    SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='linear'),
+    SVC(C=10, class_weight={0: 5, 1: 1}, degree=2, kernel='sigmoid'),
+    LinearRegression(positive=True, n_jobs=-1),
+    RandomForestClassifier(n_estimators=50, max_depth=15, min_samples_leaf=2, criterion="entropy"),
+    RandomForestClassifier(n_estimators=150, max_depth=15, min_samples_leaf=2, criterion="entropy"),
+    RandomForestClassifier(n_estimators=100, max_depth=15, min_samples_leaf=2, criterion="entropy"),
+    RandomForestClassifier(n_estimators=50, max_depth=25, min_samples_leaf=2, criterion="entropy"),
+  ]
+
+  for classifier in manual_parameters:
+    map_predictions = None
+    lr = isinstance(classifier, LinearRegression)
+    if lr:
+      map_predictions = lambda y: (y > 0.5).astype(int)
+    
+    for fs in FS_TYPES:
+      if fs == FS.FS_RFE and (isinstance(classifier, MLPClassifier) or isinstance(classifier, SVC) or isinstance(classifier, KNeighborsClassifier) or isinstance(classifier, BernoulliNB)):
+        print("MLPClassifier, SVC and KNeighborsClassifier are incompatible with RFE, skipping...")
+        continue
+      for k in (2, 5, 10, 20, 50, 100):
+        result = run_test(classifier, 
+                  X_train, X_test, Y_train, Y_test, map_predictions, 
+                  feature_selection=fs, fs_k=k, label_suffix=f"+FS.{fs}")
+        results.append(result)
   return results
 
 if __name__ == "__main__":
@@ -465,13 +583,23 @@ if __name__ == "__main__":
   results = gridsearch_custom_experiments(X_train, X_test, Y_train, Y_test)
   write_to_csv(results, "gridsearch_custom")
   
-  results = gridsearch_accuracy_experiments(X_train, X_test, Y_train, Y_test)
-  write_to_csv(results, "gridsearch_accuracy")
+  # results = gridsearch_accuracy_experiments(X_train, X_test, Y_train, Y_test)
+  # write_to_csv(results, "gridsearch_accuracy")
   
-  results = gridsearch_rocauc_experiments(X_train, X_test, Y_train, Y_test)
-  write_to_csv(results, "gridsearch_rocauc")
+  # results = gridsearch_rocauc_experiments(X_train, X_test, Y_train, Y_test)
+  # write_to_csv(results, "gridsearch_rocauc")
 
-  # results = feature_selection_experiments(X_train, X_test, Y_train, Y_test)
-  # write_to_csv(results, "feature_selection")
+  # results = ensamble_experiments(X_train, X_test, Y_train, Y_test)
+  # write_to_csv(results, "ensamble")
+
+  # !too many tests to run in a reasonable time
+  # results = fs_gs_experiments(X_train, X_test, Y_train, Y_test)
+  # write_to_csv(results, "feature_selection-gridsearch")
+
+  # results = default_feature_selection_experiments(X_train, X_test, Y_train, Y_test)
+  # write_to_csv(results, "default_feature_selection")
+  
+  # results = manual_parameter_experiments(X_train, X_test, Y_train, Y_test)
+  # write_to_csv(results, "manual")
   
 

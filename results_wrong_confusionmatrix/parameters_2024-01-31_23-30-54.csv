@@ -1,0 +1,128 @@
+Description; feature count; accuracy; true positive; false negative; false positive; true negative; false negative rate [%]; false positive rate [%]; AUC
+DecisionTreeClassifier(); 462; 0.9747; 920; 18; 22; 621; 1.92; 3.42; 0.9733
+DecisionTreeClassifier(); 462; 0.9772; 924; 14; 22; 621; 1.49; 3.42; 0.9754
+DecisionTreeClassifier(criterion='entropy'); 462; 0.9741; 919; 19; 22; 621; 2.03; 3.42; 0.9728
+DecisionTreeClassifier(criterion='log_loss'); 462; 0.9753; 923; 15; 24; 619; 1.60; 3.73; 0.9733
+DecisionTreeClassifier(); 462; 0.9747; 921; 17; 23; 620; 1.81; 3.58; 0.9731
+DecisionTreeClassifier(splitter='random'); 462; 0.9766; 924; 14; 23; 620; 1.49; 3.58; 0.9747
+DecisionTreeClassifier(); 462; 0.9772; 923; 15; 21; 622; 1.60; 3.27; 0.9757
+DecisionTreeClassifier(max_depth=5); 462; 0.9551; 935; 3; 68; 575; 0.32; 10.58; 0.9455
+DecisionTreeClassifier(max_depth=10); 462; 0.9766; 935; 3; 34; 609; 0.32; 5.29; 0.9720
+DecisionTreeClassifier(max_depth=15); 462; 0.9804; 935; 3; 28; 615; 0.32; 4.35; 0.9766
+DecisionTreeClassifier(); 462; 0.9753; 924; 14; 25; 618; 1.49; 3.89; 0.9731
+DecisionTreeClassifier(min_samples_split=4); 462; 0.9804; 928; 10; 21; 622; 1.07; 3.27; 0.9783
+DecisionTreeClassifier(min_samples_split=6); 462; 0.9817; 929; 9; 20; 623; 0.96; 3.11; 0.9797
+DecisionTreeClassifier(); 462; 0.9779; 925; 13; 22; 621; 1.39; 3.42; 0.9760
+DecisionTreeClassifier(min_samples_leaf=2); 462; 0.9772; 930; 8; 28; 615; 0.85; 4.35; 0.9740
+DecisionTreeClassifier(min_samples_leaf=4); 462; 0.9728; 927; 11; 32; 611; 1.17; 4.98; 0.9693
+DecisionTreeClassifier(min_samples_leaf=6); 462; 0.9728; 925; 13; 30; 613; 1.39; 4.67; 0.9697
+DecisionTreeClassifier(max_features='sqrt'); 462; 0.9804; 928; 10; 21; 622; 1.07; 3.27; 0.9783
+DecisionTreeClassifier(max_features='log2'); 462; 0.9532; 926; 12; 62; 581; 1.28; 9.64; 0.9454
+DecisionTreeClassifier(); 462; 0.9753; 923; 15; 24; 619; 1.60; 3.73; 0.9733
+DecisionTreeClassifier(max_features=1); 462; 0.9437; 915; 23; 66; 577; 2.45; 10.26; 0.9364
+DecisionTreeClassifier(max_features=5); 462; 0.9620; 921; 17; 43; 600; 1.81; 6.69; 0.9575
+DecisionTreeClassifier(max_features=25); 462; 0.9722; 916; 22; 22; 621; 2.35; 3.42; 0.9712
+DecisionTreeClassifier(max_features=100); 462; 0.9703; 924; 14; 33; 610; 1.49; 5.13; 0.9669
+DecisionTreeClassifier(); 462; 0.9734; 919; 19; 23; 620; 2.03; 3.58; 0.9720
+DecisionTreeClassifier(class_weight='balanced'); 462; 0.9620; 918; 20; 40; 603; 2.13; 6.22; 0.9582
+DecisionTreeClassifier(class_weight={0: 1, 1: 2}); 462; 0.9639; 919; 19; 38; 605; 2.03; 5.91; 0.9603
+DecisionTreeClassifier(class_weight={0: 2, 1: 1}); 462; 0.9747; 922; 16; 24; 619; 1.71; 3.73; 0.9728
+DecisionTreeClassifier(class_weight={0: 1, 1: 5}); 462; 0.9583; 910; 28; 38; 605; 2.99; 5.91; 0.9555
+DecisionTreeClassifier(class_weight={0: 5, 1: 1}); 462; 0.9734; 923; 15; 27; 616; 1.60; 4.20; 0.9710
+MLPClassifier(); 462; 0.9836; 928; 10; 16; 627; 1.07; 2.49; 0.9822
+MLPClassifier(hidden_layer_sizes=(50,)); 462; 0.9842; 928; 10; 15; 628; 1.07; 2.33; 0.9830
+MLPClassifier(); 462; 0.9836; 928; 10; 16; 627; 1.07; 2.49; 0.9822
+MLPClassifier(hidden_layer_sizes=(50, 50)); 462; 0.9817; 927; 11; 18; 625; 1.17; 2.80; 0.9801
+MLPClassifier(hidden_layer_sizes=(100, 50)); 462; 0.9829; 927; 11; 16; 627; 1.17; 2.49; 0.9817
+MLPClassifier(); 462; 0.9836; 927; 11; 15; 628; 1.17; 2.33; 0.9825
+MLPClassifier(activation='logistic'); 462; 0.9810; 927; 11; 19; 624; 1.17; 2.95; 0.9794
+MLPClassifier(activation='tanh'); 462; 0.9798; 924; 14; 18; 625; 1.49; 2.80; 0.9785
+MLPClassifier(solver='lbfgs'); 462; 0.9804; 927; 11; 20; 623; 1.17; 3.11; 0.9786
+MLPClassifier(); 462; 0.9810; 928; 10; 20; 623; 1.07; 3.11; 0.9791
+MLPClassifier(); 462; 0.9829; 930; 8; 19; 624; 0.85; 2.95; 0.9810
+MLPClassifier(alpha=0.001); 462; 0.9861; 930; 8; 14; 629; 0.85; 2.18; 0.9848
+MLPClassifier(alpha=0.01); 462; 0.9829; 929; 9; 18; 625; 0.96; 2.80; 0.9812
+MLPClassifier(); 462; 0.9829; 926; 12; 15; 628; 1.28; 2.33; 0.9819
+MLPClassifier(learning_rate='invscaling'); 462; 0.9817; 928; 10; 19; 624; 1.07; 2.95; 0.9799
+MLPClassifier(learning_rate='adaptive'); 462; 0.9836; 928; 10; 16; 627; 1.07; 2.49; 0.9822
+MLPClassifier(max_iter=100); 462; 0.9829; 927; 11; 16; 627; 1.17; 2.49; 0.9817
+MLPClassifier(); 462; 0.9810; 925; 13; 17; 626; 1.39; 2.64; 0.9799
+MLPClassifier(max_iter=300); 462; 0.9829; 926; 12; 15; 628; 1.28; 2.33; 0.9819
+SVC(); 462; 0.9760; 925; 13; 25; 618; 1.39; 3.89; 0.9736
+SVC(C=0.1); 462; 0.9443; 907; 31; 57; 586; 3.30; 8.86; 0.9392
+SVC(C=1); 462; 0.9760; 925; 13; 25; 618; 1.39; 3.89; 0.9736
+SVC(C=10); 462; 0.9791; 925; 13; 20; 623; 1.39; 3.11; 0.9775
+SVC(kernel='linear'); 462; 0.9715; 922; 16; 29; 614; 1.71; 4.51; 0.9689
+SVC(); 462; 0.9760; 925; 13; 25; 618; 1.39; 3.89; 0.9736
+SVC(kernel='poly'); 462; 0.8324; 937; 1; 264; 379; 0.11; 41.06; 0.7942
+SVC(kernel='sigmoid'); 462; 0.9766; 931; 7; 30; 613; 0.75; 4.67; 0.9729
+SVC(degree=2); 462; 0.9760; 925; 13; 25; 618; 1.39; 3.89; 0.9736
+SVC(); 462; 0.9760; 925; 13; 25; 618; 1.39; 3.89; 0.9736
+SVC(degree=4); 462; 0.9760; 925; 13; 25; 618; 1.39; 3.89; 0.9736
+SVC(); 462; 0.9760; 925; 13; 25; 618; 1.39; 3.89; 0.9736
+SVC(gamma='auto'); 462; 0.9760; 925; 13; 25; 618; 1.39; 3.89; 0.9736
+SVC(gamma=0.1); 462; 0.8741; 742; 196; 3; 640; 20.90; 0.47; 0.8932
+SVC(gamma=1); 462; 0.8197; 655; 283; 2; 641; 30.17; 0.31; 0.8476
+SVC(); 462; 0.9760; 925; 13; 25; 618; 1.39; 3.89; 0.9736
+SVC(class_weight='balanced'); 462; 0.9747; 921; 17; 23; 620; 1.81; 3.58; 0.9731
+SVC(class_weight={0: 1, 1: 2}); 462; 0.9779; 923; 15; 20; 623; 1.60; 3.11; 0.9765
+SVC(class_weight={0: 2, 1: 1}); 462; 0.9766; 928; 10; 27; 616; 1.07; 4.20; 0.9737
+SVC(class_weight={0: 1, 1: 5}); 462; 0.9766; 917; 21; 16; 627; 2.24; 2.49; 0.9764
+SVC(class_weight={0: 5, 1: 1}); 462; 0.9772; 930; 8; 28; 615; 0.85; 4.35; 0.9740
+LinearRegression(); 462; 0.9620; 933; 5; 55; 588; 0.53; 8.55; 0.9546
+LinearRegression(); 462; 0.9620; 933; 5; 55; 588; 0.53; 8.55; 0.9546
+LinearRegression(fit_intercept=False); 462; 0.8431; 935; 3; 245; 398; 0.32; 38.10; 0.8079
+LinearRegression(positive=True); 462; 0.9671; 933; 5; 47; 596; 0.53; 7.31; 0.9608
+LinearRegression(); 462; 0.9620; 933; 5; 55; 588; 0.53; 8.55; 0.9546
+LinearRegression(); 462; 0.9620; 933; 5; 55; 588; 0.53; 8.55; 0.9546
+LinearRegression(n_jobs=-1); 462; 0.9620; 933; 5; 55; 588; 0.53; 8.55; 0.9546
+KNeighborsClassifier(); 462; 0.9209; 930; 8; 117; 526; 0.85; 18.20; 0.9048
+KNeighborsClassifier(n_neighbors=3); 462; 0.9374; 928; 10; 89; 554; 1.07; 13.84; 0.9255
+KNeighborsClassifier(); 462; 0.9209; 930; 8; 117; 526; 0.85; 18.20; 0.9048
+KNeighborsClassifier(n_neighbors=7); 462; 0.8994; 929; 9; 150; 493; 0.96; 23.33; 0.8786
+KNeighborsClassifier(); 462; 0.9209; 930; 8; 117; 526; 0.85; 18.20; 0.9048
+KNeighborsClassifier(weights='distance'); 462; 0.9279; 932; 6; 108; 535; 0.64; 16.80; 0.9128
+KNeighborsClassifier(); 462; 0.9209; 930; 8; 117; 526; 0.85; 18.20; 0.9048
+KNeighborsClassifier(algorithm='ball_tree'); 462; 0.9209; 930; 8; 117; 526; 0.85; 18.20; 0.9048
+KNeighborsClassifier(algorithm='kd_tree'); 462; 0.9203; 930; 8; 118; 525; 0.85; 18.35; 0.9040
+KNeighborsClassifier(algorithm='brute'); 462; 0.9209; 930; 8; 117; 526; 0.85; 18.20; 0.9048
+KNeighborsClassifier(p=1); 462; 0.9165; 934; 4; 128; 515; 0.43; 19.91; 0.8983
+KNeighborsClassifier(); 462; 0.9209; 930; 8; 117; 526; 0.85; 18.20; 0.9048
+BernoulliNB(); 462; 0.9791; 932; 6; 27; 616; 0.64; 4.20; 0.9758
+BernoulliNB(alpha=0.1); 462; 0.9810; 932; 6; 24; 619; 0.64; 3.73; 0.9781
+BernoulliNB(alpha=0.5); 462; 0.9791; 932; 6; 27; 616; 0.64; 4.20; 0.9758
+BernoulliNB(); 462; 0.9791; 932; 6; 27; 616; 0.64; 4.20; 0.9758
+BernoulliNB(binarize=0.5); 462; 0.9791; 932; 6; 27; 616; 0.64; 4.20; 0.9758
+BernoulliNB(); 462; 0.9791; 932; 6; 27; 616; 0.64; 4.20; 0.9758
+BernoulliNB(fit_prior=False); 462; 0.9791; 932; 6; 27; 616; 0.64; 4.20; 0.9758
+RandomForestClassifier(); 462; 0.9848; 933; 5; 19; 624; 0.53; 2.95; 0.9826
+RandomForestClassifier(n_estimators=50); 462; 0.9842; 933; 5; 20; 623; 0.53; 3.11; 0.9818
+RandomForestClassifier(); 462; 0.9855; 933; 5; 18; 625; 0.53; 2.80; 0.9833
+RandomForestClassifier(n_estimators=200); 462; 0.9848; 933; 5; 19; 624; 0.53; 2.95; 0.9826
+RandomForestClassifier(); 462; 0.9848; 933; 5; 19; 624; 0.53; 2.95; 0.9826
+RandomForestClassifier(criterion='entropy'); 462; 0.9842; 933; 5; 20; 623; 0.53; 3.11; 0.9818
+RandomForestClassifier(criterion='log_loss'); 462; 0.9842; 933; 5; 20; 623; 0.53; 3.11; 0.9818
+RandomForestClassifier(); 462; 0.9842; 933; 5; 20; 623; 0.53; 3.11; 0.9818
+RandomForestClassifier(max_depth=5); 462; 0.9532; 935; 3; 71; 572; 0.32; 11.04; 0.9432
+RandomForestClassifier(max_depth=10); 462; 0.9722; 933; 5; 39; 604; 0.53; 6.07; 0.9670
+RandomForestClassifier(max_depth=15); 462; 0.9772; 933; 5; 31; 612; 0.53; 4.82; 0.9732
+RandomForestClassifier(); 462; 0.9861; 933; 5; 17; 626; 0.53; 2.64; 0.9841
+RandomForestClassifier(min_samples_split=4); 462; 0.9848; 932; 6; 18; 625; 0.64; 2.80; 0.9828
+RandomForestClassifier(min_samples_split=6); 462; 0.9848; 931; 7; 17; 626; 0.75; 2.64; 0.9830
+RandomForestClassifier(); 462; 0.9829; 933; 5; 22; 621; 0.53; 3.42; 0.9802
+RandomForestClassifier(min_samples_leaf=2); 462; 0.9804; 931; 7; 24; 619; 0.75; 3.73; 0.9776
+RandomForestClassifier(min_samples_leaf=4); 462; 0.9785; 932; 6; 28; 615; 0.64; 4.35; 0.9750
+RandomForestClassifier(min_samples_leaf=6); 462; 0.9766; 930; 8; 29; 614; 0.85; 4.51; 0.9732
+RandomForestClassifier(); 462; 0.9855; 932; 6; 17; 626; 0.64; 2.64; 0.9836
+RandomForestClassifier(max_features='log2'); 462; 0.9842; 933; 5; 20; 623; 0.53; 3.11; 0.9818
+RandomForestClassifier(max_features=None); 462; 0.9772; 924; 14; 22; 621; 1.49; 3.42; 0.9754
+RandomForestClassifier(max_features=1); 462; 0.9829; 934; 4; 23; 620; 0.43; 3.58; 0.9800
+RandomForestClassifier(max_features=5); 462; 0.9823; 934; 4; 24; 619; 0.43; 3.73; 0.9792
+RandomForestClassifier(max_features=25); 462; 0.9855; 933; 5; 18; 625; 0.53; 2.80; 0.9833
+RandomForestClassifier(max_features=100); 462; 0.9817; 929; 9; 20; 623; 0.96; 3.11; 0.9797
+RandomForestClassifier(); 462; 0.9861; 933; 5; 17; 626; 0.53; 2.64; 0.9841
+RandomForestClassifier(class_weight='balanced'); 462; 0.9855; 933; 5; 18; 625; 0.53; 2.80; 0.9833
+RandomForestClassifier(class_weight={0: 1, 1: 2}); 462; 0.9836; 933; 5; 21; 622; 0.53; 3.27; 0.9810
+RandomForestClassifier(class_weight={0: 2, 1: 1}); 462; 0.9861; 933; 5; 17; 626; 0.53; 2.64; 0.9841
+RandomForestClassifier(class_weight={0: 1, 1: 5}); 462; 0.9848; 933; 5; 19; 624; 0.53; 2.95; 0.9826
+RandomForestClassifier(class_weight={0: 5, 1: 1}); 462; 0.9855; 932; 6; 17; 626; 0.64; 2.64; 0.9836

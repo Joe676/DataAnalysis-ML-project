@@ -1,0 +1,7 @@
+Description; feature count; accuracy; true positive; false negative; false positive; true negative; false negative rate [%]; false positive rate [%]; AUC
+DecisionTreeClassifier(class_weight={0: 5, 1: 1}, max_features=100,
+                       min_samples_leaf=6, min_samples_split=6,
+                       splitter='random')+GridSearchCV; 462; 0.9564; 931; 7; 62; 581; 0.75; 9.64; 0.9481
+SVC(C=0.1, class_weight={0: 1, 1: 5}, degree=2, gamma='auto', kernel='sigmoid')+GridSearchCV; 462; 0.9798; 923; 15; 17; 626; 1.60; 2.64; 0.9788
+KNeighborsClassifier(n_neighbors=7, weights='distance')+GridSearchCV; 462; 0.9127; 931; 7; 131; 512; 0.75; 20.37; 0.8944
+BernoulliNB(alpha=0.1, binarize=0.5)+GridSearchCV; 462; 0.9810; 932; 6; 24; 619; 0.64; 3.73; 0.9781

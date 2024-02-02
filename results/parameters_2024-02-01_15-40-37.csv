@@ -1,0 +1,78 @@
+Description; feature count; accuracy; true positive; false negative; false positive; true negative; false negative rate [%]; false positive rate [%]; AUC
+DecisionTreeClassifier(); 462; 0.9760; 620; 23; 15; 923; 3.58; 1.60; 0.9741
+DecisionTreeClassifier(); 462; 0.9785; 621; 22; 12; 926; 3.42; 1.28; 0.9765
+DecisionTreeClassifier(criterion='entropy'); 462; 0.9785; 620; 23; 11; 927; 3.58; 1.17; 0.9763
+DecisionTreeClassifier(criterion='log_loss'); 462; 0.9772; 619; 24; 12; 926; 3.73; 1.28; 0.9749
+DecisionTreeClassifier(); 462; 0.9798; 622; 21; 11; 927; 3.27; 1.17; 0.9778
+DecisionTreeClassifier(splitter='random'); 462; 0.9753; 620; 23; 16; 922; 3.58; 1.71; 0.9736
+DecisionTreeClassifier(); 462; 0.9753; 622; 21; 18; 920; 3.27; 1.92; 0.9741
+DecisionTreeClassifier(max_depth=5); 462; 0.9551; 575; 68; 3; 935; 10.58; 0.32; 0.9455
+DecisionTreeClassifier(max_depth=10); 462; 0.9766; 609; 34; 3; 935; 5.29; 0.32; 0.9720
+DecisionTreeClassifier(max_depth=15); 462; 0.9804; 615; 28; 3; 935; 4.35; 0.32; 0.9766
+DecisionTreeClassifier(); 462; 0.9766; 620; 23; 14; 924; 3.58; 1.49; 0.9747
+DecisionTreeClassifier(min_samples_split=4); 462; 0.9823; 624; 19; 9; 929; 2.95; 0.96; 0.9804
+DecisionTreeClassifier(min_samples_split=6); 462; 0.9823; 625; 18; 10; 928; 2.80; 1.07; 0.9807
+DecisionTreeClassifier(); 462; 0.9760; 621; 22; 16; 922; 3.42; 1.71; 0.9744
+DecisionTreeClassifier(min_samples_leaf=2); 462; 0.9728; 608; 35; 8; 930; 5.44; 0.85; 0.9685
+DecisionTreeClassifier(min_samples_leaf=4); 462; 0.9728; 611; 32; 11; 927; 4.98; 1.17; 0.9693
+DecisionTreeClassifier(min_samples_leaf=6); 462; 0.9728; 613; 30; 13; 925; 4.67; 1.39; 0.9697
+DecisionTreeClassifier(max_features='sqrt'); 462; 0.9715; 612; 31; 14; 924; 4.82; 1.49; 0.9684
+DecisionTreeClassifier(max_features='log2'); 462; 0.9658; 607; 36; 18; 920; 5.60; 1.92; 0.9624
+DecisionTreeClassifier(); 462; 0.9766; 620; 23; 14; 924; 3.58; 1.49; 0.9747
+DecisionTreeClassifier(max_features=1); 462; 0.9564; 595; 48; 21; 917; 7.47; 2.24; 0.9515
+DecisionTreeClassifier(max_features=5); 462; 0.9589; 593; 50; 15; 923; 7.78; 1.60; 0.9531
+DecisionTreeClassifier(max_features=25); 462; 0.9677; 610; 33; 18; 920; 5.13; 1.92; 0.9647
+DecisionTreeClassifier(max_features=100); 462; 0.9753; 619; 24; 15; 923; 3.73; 1.60; 0.9733
+DecisionTreeClassifier(); 462; 0.9779; 620; 23; 12; 926; 3.58; 1.28; 0.9757
+DecisionTreeClassifier(class_weight='balanced'); 462; 0.9602; 604; 39; 24; 914; 6.07; 2.56; 0.9569
+DecisionTreeClassifier(class_weight={0: 1, 1: 2}); 462; 0.9583; 601; 42; 24; 914; 6.53; 2.56; 0.9545
+DecisionTreeClassifier(class_weight={0: 2, 1: 1}); 462; 0.9753; 620; 23; 16; 922; 3.58; 1.71; 0.9736
+DecisionTreeClassifier(class_weight={0: 1, 1: 5}); 462; 0.9583; 604; 39; 27; 911; 6.07; 2.88; 0.9553
+DecisionTreeClassifier(class_weight={0: 5, 1: 1}); 462; 0.9728; 613; 30; 13; 925; 4.67; 1.39; 0.9697
+SVC(); 462; 0.9760; 618; 25; 13; 925; 3.89; 1.39; 0.9736
+SVC(C=0.1); 462; 0.9443; 586; 57; 31; 907; 8.86; 3.30; 0.9392
+SVC(C=1); 462; 0.9760; 618; 25; 13; 925; 3.89; 1.39; 0.9736
+SVC(C=10); 462; 0.9791; 623; 20; 13; 925; 3.11; 1.39; 0.9775
+SVC(kernel='linear'); 462; 0.9715; 614; 29; 16; 922; 4.51; 1.71; 0.9689
+SVC(); 462; 0.9760; 618; 25; 13; 925; 3.89; 1.39; 0.9736
+SVC(kernel='poly'); 462; 0.8324; 379; 264; 1; 937; 41.06; 0.11; 0.7942
+SVC(kernel='sigmoid'); 462; 0.9766; 613; 30; 7; 931; 4.67; 0.75; 0.9729
+SVC(degree=2); 462; 0.9760; 618; 25; 13; 925; 3.89; 1.39; 0.9736
+SVC(); 462; 0.9760; 618; 25; 13; 925; 3.89; 1.39; 0.9736
+SVC(degree=4); 462; 0.9760; 618; 25; 13; 925; 3.89; 1.39; 0.9736
+SVC(); 462; 0.9760; 618; 25; 13; 925; 3.89; 1.39; 0.9736
+SVC(gamma='auto'); 462; 0.9760; 618; 25; 13; 925; 3.89; 1.39; 0.9736
+SVC(gamma=0.1); 462; 0.8741; 640; 3; 196; 742; 0.47; 20.90; 0.8932
+SVC(gamma=1); 462; 0.8197; 641; 2; 283; 655; 0.31; 30.17; 0.8476
+SVC(); 462; 0.9760; 618; 25; 13; 925; 3.89; 1.39; 0.9736
+SVC(class_weight='balanced'); 462; 0.9747; 620; 23; 17; 921; 3.58; 1.81; 0.9731
+SVC(class_weight={0: 1, 1: 2}); 462; 0.9779; 623; 20; 15; 923; 3.11; 1.60; 0.9765
+SVC(class_weight={0: 2, 1: 1}); 462; 0.9766; 616; 27; 10; 928; 4.20; 1.07; 0.9737
+SVC(class_weight={0: 1, 1: 5}); 462; 0.9766; 627; 16; 21; 917; 2.49; 2.24; 0.9764
+SVC(class_weight={0: 5, 1: 1}); 462; 0.9772; 615; 28; 8; 930; 4.35; 0.85; 0.9740
+LinearRegression(); 462; 0.9620; 588; 55; 5; 933; 8.55; 0.53; 0.9546
+LinearRegression(); 462; 0.9620; 588; 55; 5; 933; 8.55; 0.53; 0.9546
+LinearRegression(fit_intercept=False); 462; 0.8431; 398; 245; 3; 935; 38.10; 0.32; 0.8079
+LinearRegression(positive=True); 462; 0.9671; 596; 47; 5; 933; 7.31; 0.53; 0.9608
+LinearRegression(); 462; 0.9620; 588; 55; 5; 933; 8.55; 0.53; 0.9546
+LinearRegression(); 462; 0.9620; 588; 55; 5; 933; 8.55; 0.53; 0.9546
+LinearRegression(n_jobs=-1); 462; 0.9620; 588; 55; 5; 933; 8.55; 0.53; 0.9546
+KNeighborsClassifier(); 462; 0.9209; 526; 117; 8; 930; 18.20; 0.85; 0.9048
+KNeighborsClassifier(n_neighbors=3); 462; 0.9374; 554; 89; 10; 928; 13.84; 1.07; 0.9255
+KNeighborsClassifier(); 462; 0.9209; 526; 117; 8; 930; 18.20; 0.85; 0.9048
+KNeighborsClassifier(n_neighbors=7); 462; 0.8994; 493; 150; 9; 929; 23.33; 0.96; 0.8786
+KNeighborsClassifier(); 462; 0.9209; 526; 117; 8; 930; 18.20; 0.85; 0.9048
+KNeighborsClassifier(weights='distance'); 462; 0.9279; 535; 108; 6; 932; 16.80; 0.64; 0.9128
+KNeighborsClassifier(); 462; 0.9209; 526; 117; 8; 930; 18.20; 0.85; 0.9048
+KNeighborsClassifier(algorithm='ball_tree'); 462; 0.9209; 526; 117; 8; 930; 18.20; 0.85; 0.9048
+KNeighborsClassifier(algorithm='kd_tree'); 462; 0.9203; 525; 118; 8; 930; 18.35; 0.85; 0.9040
+KNeighborsClassifier(algorithm='brute'); 462; 0.9209; 526; 117; 8; 930; 18.20; 0.85; 0.9048
+KNeighborsClassifier(p=1); 462; 0.9165; 515; 128; 4; 934; 19.91; 0.43; 0.8983
+KNeighborsClassifier(); 462; 0.9209; 526; 117; 8; 930; 18.20; 0.85; 0.9048
+BernoulliNB(); 462; 0.9791; 616; 27; 6; 932; 4.20; 0.64; 0.9758
+BernoulliNB(alpha=0.1); 462; 0.9810; 619; 24; 6; 932; 3.73; 0.64; 0.9781
+BernoulliNB(alpha=0.5); 462; 0.9791; 616; 27; 6; 932; 4.20; 0.64; 0.9758
+BernoulliNB(); 462; 0.9791; 616; 27; 6; 932; 4.20; 0.64; 0.9758
+BernoulliNB(binarize=0.5); 462; 0.9791; 616; 27; 6; 932; 4.20; 0.64; 0.9758
+BernoulliNB(); 462; 0.9791; 616; 27; 6; 932; 4.20; 0.64; 0.9758
+BernoulliNB(fit_prior=False); 462; 0.9791; 616; 27; 6; 932; 4.20; 0.64; 0.9758
